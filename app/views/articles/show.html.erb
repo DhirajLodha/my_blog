@@ -1,0 +1,26 @@
+<%= render "layouts/navigation" %>
+
+<div class="bg-secondary-subtle">
+<div class="container">
+
+  <h1 class="text-center"><%= @article.title %></h1>
+  <div class="text-center container row justify-content-md-center">
+    <div class="card text-center my-2 col-8 ">
+      <div class="card-header fst-italic">
+        By Dhiraj
+      </div>
+      <div class="card-body">
+        <p class="card-text"><%= @article.description %></p>
+
+        <%= link_to 'Edit', "articles/#{@article.id}/edit", class:"btn btn-outline-info" %>
+        <%= link_to "Delete", "articles/#{@article.id}",class:"btn btn-outline-danger", method: :delete, data: {confirm: "Are you sure?"} %>
+        <%#= link_to "Edit", "/articles/#{@article.id}/edit" %>
+        <%#= link_to "Delete", "/articles/#{@article.id}/delete"%>
+      </div>
+      <div class="card-footer text-muted">
+        <small>Created <%= time_ago_in_words(@article.created_at) %> | Edited <%= time_ago_in_words(@article.updated_at) %></small>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

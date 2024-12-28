@@ -1,0 +1,28 @@
+<%= render "layouts/navigation" %>
+
+<h1 class="text-center">New Article</h1>
+
+<div class="container mt-5 border border-black bg-secondary-subtle rounded p-5 b">
+  <%= render 'layouts/errors' %>
+
+<%= form_with  model:@article, url:"new" do |f| %>
+
+  <div>
+    <%= f.label :title, class:"form-label" %><br>
+    <%= f.text_field :title, class:"form-control"%>
+  </div>
+
+  <div>
+    <%=f.label :description ,class:"form-label"%><br>
+    <%= f.text_area :description, class:"form-control" %>
+  </div>
+
+  <div>
+      <%=f.submit "Create Article", class:"mt-4 btn btn-primary" %>
+    <%= link_to "Back", "/articles", class:"mt-4 btn btn-primary"%>
+
+  </div>
+
+  <% end %>
+
+</div>

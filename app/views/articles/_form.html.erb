@@ -1,0 +1,24 @@
+<%= form_with  model:@article, url:"edit" do |f| %>
+  <div>
+    <%= f.label :title, class:"form-label" %><br>
+    <%= f.text_field :title, class:"form-control"%>
+    <% @article.errors.full_messages_for(:title).each do |message| %>
+      <div class="text-red-500"><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%=f.label :description ,class:"form-label"%><br>
+    <%= f.text_area :description, class:"form-control" %>
+    <% @article.errors.full_messages_for(:description).each do |message| %>
+      <div class="text-red-500"><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%=f.submit "Edit" , class:"mt-4 btn btn-primary" %>
+    <%= link_to "Back", "/articles", class:"mt-4 btn btn-primary"%>
+  </div>
+
+
+<% end %>
